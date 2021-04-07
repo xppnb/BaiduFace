@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scaleType="fitXY"
+    tools:context=".ui.FaceAnalyzeActivity">
+
+    <FrameLayout
+        android:id="@+id/linelayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="10">
+
+
+        <SurfaceView
+            android:id="@+id/backView"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+
+        <SurfaceView
+            android:id="@+id/frontView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+
+
+        <TextureView
+            android:id="@+id/camera_preview_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/layout_info"
+            android:layout_below="@id/search_title"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tempDebug"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="250dp"
+            android:text=""
+            android:textColor="@color/face_text_color"
+            android:textSize="30sp"
+            android:visibility="invisible" />
+
+        <com.baidu.idl.face.main.camera.AutoTexturePreviewView
+            android:id="@+id/auto_camera_preview_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/layout_info"
+            android:layout_below="@id/search_title"
+            android:visibility="gone" />
+
+
+        <TextureView
+            android:id="@+id/draw_detect_face_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/debug_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginTop="285dp"
+            android:layout_below="@id/search_title" />
+
+        <TextView
+            android:id="@+id/machen_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginTop="885dp"
+            android:layout_below="@id/search_title" />
+
+
+        <com.scj.face.widgets.MyDrawRectView
+            android:id="@+id/mipi_preview_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="20">
+
+        <!--头部背景-->
+        <ImageView
+            android:id="@+id/title_image"
+            android:layout_width="match_parent"
+            android:layout_height="123dp"
+            android:background="@mipmap/main_title_bg" />
+        <!--更新进度条-->
+        <ProgressBar
+            android:id="@+id/progressBarLarge"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_below="@+id/title_image"
+            android:layout_marginTop="124dp"
+            android:max="100"
+            android:progress="50"
+            android:progressDrawable="@drawable/layer_list_progressbar"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_image"
+            android:layout_marginTop="224dp"
+            android:textColor="@color/red"
+
+            />
+
+        <!--时间-->
+        <TextView
+            android:id="@+id/notice_time"
+            android:layout_width="130dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="50dp"
+            android:text="1212"
+            android:textColor="@color/face_text_color"
+            android:textSize="33dp" />
+        <!--日期 星期-->
+        <TextView
+            android:id="@+id/notice_week"
+            android:layout_width="194dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="85dp"
+            android:text="1212"
+            android:textColor="@color/face_text_color"
+            android:textSize="18dp" />
+
+        <!--设置图标-->
+        <ImageView
+            android:layout_width="59dp"
+            android:layout_height="58dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="19dp"
+            android:background="@mipmap/settings"
+            android:visibility="invisible" />
+
+
+        <!--底部公司信息-->
+        <ImageView
+            android:id="@+id/compentInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:background="@mipmap/company_info"
+
+
+            />
+
+        <TextureView
+            android:id="@+id/ir_camera_preview_view"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_above="@id/compentInfo"
+            android:layout_gravity="bottom|left"
+            android:visibility="invisible"
+            />
+
+        <ImageView
+            android:id="@+id/face_detect_image_view"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_above="@id/compentInfo"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="bottom|right"
+            android:visibility="invisible" />
+
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/noticeFrameLayout"
+        android:layout_width="540dp"
+        android:layout_height="600dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="200dp"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        >
+
+        <FrameLayout
+            android:layout_width="540dp"
+            android:layout_height="450dp">
+
+            <!--显示的信息-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/info"
+                android:background="@mipmap/info" />
+
+            <!--学生头像-->
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="130dp"
+                android:layout_height="200dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="45dp" />
+
+            <TextView
+                android:id="@+id/tvTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="250dp"
+                android:visibility="gone"
+                android:text="36.6"
+                android:textColor="@color/face_text_color"
+                android:textSize="30sp" />
+            <!--学生姓名-->
+            <TextView
+                android:id="@+id/realName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="280dp"
+                android:layout_marginTop="50dp"
+                android:text=""
+                android:textColor="@color/face_text_color"
+                android:textSize="16sp" />
+            <!--在校状态-->
+            <TextView
+                android:id="@+id/state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="280dp"
+                android:layout_marginTop="100dp"
+                android:text=""
+                android:textColor="@color/face_text_color"
+                android:textSize="15sp" />
+            <!--班号-->
+            <TextView
+                android:id="@+id/classNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="280dp"
+                android:layout_marginTop="140dp"
+                android:text=""
+                android:textColor="@color/face_text_color"
+                android:textSize="15sp" />
+            <!--学院-->
+            <TextView
+                android:id="@+id/deptName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="280dp"
+                android:layout_marginTop="190dp"
+                android:text=""
+                android:textColor="@color/face_text_color"
+                android:textSize="15sp" />
+            <!--宿舍号-->
+            <TextView
+                android:id="@+id/dormitoryNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="280dp"
+                android:layout_marginTop="235dp"
+                android:text=""
+                android:textColor="@color/face_text_color"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="23dp"
+                android:layout_marginTop="670dp"
+                android:background="@mipmap/pycc_bg" />
+
+            <TextView
+                android:id="@+id/pycc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="50dp"
+                android:text=""
+                android:textColor="@color/face_text_color"
+                android:textSize="56sp" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/passed"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="bottom"
+            android:background="@mipmap/passed"
+            android:visibility="gone"
+            />
+
+        <ImageView
+            android:id="@+id/refused"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="bottom"
+            android:background="@mipmap/refused"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlUpdateView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#90000000"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/updateProgress"
+            android:layout_width="match_parent"
+            android:progressDrawable="@drawable/layer_list_progressbar"
+            android:layout_height="10dp"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/updateProgress"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="学生信息同步中..."
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlFaultTip"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="150dp">
+
+        <View
+            android:id="@+id/tempNormal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/color_green_shape" />
+
+<!--        <View-->
+<!--            android:id="@+id/tempUnNormal"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:background="@drawable/color_orange_shape"-->
+<!--            android:visibility="gone"/>-->
+
+<!--        <View-->
+<!--            android:id="@+id/tempUnNormalerror"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:background="@drawable/color_red_shape"-->
+<!--            android:visibility="gone"/>-->
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center|left"
+            android:orientation="vertical">
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvFaultTip"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="识别失败！"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="48sp"-->
+<!--                android:textStyle="bold" />-->
+
+            <TextView
+                android:id="@+id/tvFaultTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginTop="4dp"
+                android:textColor="@color/white"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

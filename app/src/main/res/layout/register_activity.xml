@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.baidu.idl.main.facesdk.registerlibrary.user.camera.AutoTexturePreviewView
+                android:id="@+id/auto_camera_preview_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                app:layout_constraintBottom_toBottomOf="@+id/textTureView"
+                app:layout_constraintEnd_toEndOf="@+id/textTureView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.baidu.idl.main.facesdk.registerlibrary.user.view.FaceRoundProView
+                android:id="@+id/round_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <com.baidu.idl.main.facesdk.registerlibrary.user.view.CircleImageView
+                android:id="@+id/circle_head"
+                android:layout_width="108dp"
+                android:layout_height="108dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.118" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTextName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:hint="UserName"
+                android:visibility="invisible"
+                app:hintTextColor="#0DBF08"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/circle_head"
+                app:layout_constraintVertical_bias="0.061">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextName2"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="胥鹏"
+                    android:textSize="16dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.518"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/circle_head"
+                    app:layout_constraintVertical_bias="0.08" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTextClass"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:hint="Class"
+                android:visibility="invisible"
+                app:hintTextColor="#0DBF08"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextName"
+                app:layout_constraintVertical_bias="0.08">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="1632"
+                    android:textSize="16dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTextAccommodation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:hint="IsAccommodation"
+                android:visibility="invisible"
+                app:hintTextColor="#0DBF08"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextClass"
+                app:layout_constraintVertical_bias="0.136">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="是"
+                    android:textSize="16dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_school"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:hint="school"
+                android:visibility="invisible"
+                app:hintTextColor="#0DBF08"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextAccommodation"
+                app:layout_constraintVertical_bias="0.174">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="初中/注册/在校"
+                    android:textSize="16dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_college"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:hint="college"
+                android:visibility="invisible"
+                app:hintTextColor="#0DBF08"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_school"
+                app:layout_constraintVertical_bias="0.466">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="信息服务学院"
+                    android:textSize="16dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ok_btn"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:backgroundTint="@color/white"
+            android:onClick="onClick"
+            android:text="确定"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:visibility="invisible"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
